@@ -1,0 +1,13 @@
+aws_auth
+
+tfplan
+
+# Local .terraform directories
+.terraform/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Visual Studio Code Settings
+.vscode/

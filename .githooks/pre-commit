@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function plural () {
+    if [ $1 -ne 1 -a $1 -ne -1 ]
+    then
+        echo s
+    fi
+}
+
+files_changed=$(comm -12 <(terraform fmt -recursive) <(git ls-files))
+count=$(echo -n "$files_changed" | grep -c '^')
+
+if [ -n "$files_changed" ]
+then
+    git add $files_changed
+    echo "Reformatted $count terraform file$(plural $count)"
+fi
+
