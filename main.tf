@@ -11,6 +11,7 @@ data "template_file" "user_data" {
   template = "${file("${path.module}/templates/user_data.tpl")}"
   vars = {
     app_port = "${var.server_port}"
+    message = "Hello, World!"
   }
 }
 
